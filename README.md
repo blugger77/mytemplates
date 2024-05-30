@@ -1,2 +1,2 @@
 # mytemplates
- These are my private templates.
+ These are my private templates!
