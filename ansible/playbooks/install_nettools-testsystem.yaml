@@ -1,0 +1,9 @@
+---
+- hosts: lxc_ubuntu
+  #become: yes // become the root
+  tasks:
+    - name: install net-tools
+      apt:
+        name: net-tools
+        state: present
+
