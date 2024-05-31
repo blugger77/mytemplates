@@ -1,0 +1,8 @@
+---
+- hosts: telegraphs
+  #become: yes // become the root
+  tasks:
+    - name: install net-tools
+      apt:
+        name: net-tools
+        state: present
