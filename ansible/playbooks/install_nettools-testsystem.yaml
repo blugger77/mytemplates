@@ -1,5 +1,5 @@
 ---
-- hosts: lxc_ubuntu
+- hosts: testsystem
   #become: yes // become the root
   tasks:
     - name: install net-tools
