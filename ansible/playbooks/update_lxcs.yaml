@@ -1,0 +1,32 @@
+---
+- hosts: lxc_ubuntu
+  #become: yes // become the root
+
+  tasks:
+
+    - name: Update packages with apt
+      when: ansible_pkg_mgr == 'apt'
+      ansible.builtin.apt:
+
+        #  Run the equivalent of apt-get update command.
+        update_cache: true
+
+        # Update the apt cache if it is older than the cache_valid_time state in the 300 (5 minutes) seconds.
+        #cache_valid_time: 300
+
+        # All packages.
+        name: "*"
+
+    - name: Update Clean
+      when: ansible_pkg_mgr == 'apt'
+
+      # Run the equivalent of "apt-get clean".
+      apt:
+        clean: yes
+
+    - name: Upgrade OS
+      when: ansible_pkg_mgr == 'apt'
+      # Upgrade the OS (apt-get dist-upgrade)
+      ansible.builtin.apt:
+        upgrade=dist
+        force_apt_get=yes
